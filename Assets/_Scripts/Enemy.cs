@@ -19,15 +19,11 @@ public class Enemy : MonoBehaviour {
 	public Bounds bounds;  //The bounds of this and it's children
 	public Vector3 boundsCenterOffset;  //Dist of bounds.center from position
 	
-	public GUIText gtScore;
+
 
 	// Use this for initialization
 	void Start () {
-		GameObject scoreGO = GameObject.Find ("Score");
 
-		gtScore = scoreGO.GetComponent<GUIText> ();
-
-		gtScore.text = "0";
 	
 	}
 
@@ -127,13 +123,8 @@ public class Enemy : MonoBehaviour {
 				//Destroy this enemy
 				Destroy(this.gameObject);
 				
-				
 			}
 			Destroy(other);
-
-			int score = int.Parse (gtScore.text);
-			score += 100;
-			gtScore.text = score.ToString ();
 			break;
 		}
 	}
